@@ -1,5 +1,6 @@
 package com.api.users.mappers;
 
+import com.api.users.dtos.GetUserDTO;
 import com.api.users.dtos.UserDTO;
 import com.api.users.entities.User;
 import org.mapstruct.*;
@@ -22,12 +23,15 @@ public interface UserMapper {
     @Mapping(source = "email", target = "email")
     @Mapping(source = "address", target = "address")
     @Mapping(source = "department.id", target = "departmentId")
-
     UserDTO toUserDTO(User user);
+
+
     @InheritInverseConfiguration
     User toUser(UserDTO userDTO);
 
-    List<UserDTO> userToUsersDTOs(List<User> user);
+
+
+    List<GetUserDTO> userToUsersDTOs(List<User> user);
 
     User updateUserFromUserDTO(UserDTO userDTO, @MappingTarget User user);
 }

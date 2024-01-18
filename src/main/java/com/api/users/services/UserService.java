@@ -1,5 +1,6 @@
 package com.api.users.services;
 
+import com.api.users.dtos.GetUserDTO;
 import com.api.users.dtos.UserDTO;
 import com.api.users.entities.User;
 import com.api.users.exceptions.BadRequestException;
@@ -27,8 +28,8 @@ public class UserService {
         return  this.userMapper.toUserDTO(userRepository.save(user));
     }
 
-    public ArrayList<UserDTO> getUsers(){
-        return (ArrayList<UserDTO>)this.userMapper.userToUsersDTOs(userRepository.findAll());
+    public ArrayList<GetUserDTO> getUsers(){
+        return (ArrayList<GetUserDTO>)this.userMapper.userToUsersDTOs(userRepository.findAll());
     }
 
     public UserDTO getUserById(Long id){
